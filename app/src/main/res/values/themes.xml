@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Xchange2" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary_forest_green</item>
+        <item name="colorOnPrimary">@color/surface_card_white</item>
+        <item name="colorPrimaryContainer">@color/secondary_soft_mint</item>
+        <item name="colorOnPrimaryContainer">@color/primary_forest_green_dark</item>
+
+        <!-- Secondary color -->
+        <item name="colorSecondary">@color/primary_forest_green_light</item>
+        <item name="colorOnSecondary">@color/surface_card_white</item>
+
+        <!-- Status bar and background -->
+        <item name="android:statusBarColor">@color/background_off_white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:colorBackground">@color/background_off_white</item>
+
+        <!-- Material typography and styling -->
+        <item name="colorSurface">@color/surface_card_white</item>
+        <item name="colorOnSurface">@color/text_dark_charcoal</item>
+    </style>
+</resources>

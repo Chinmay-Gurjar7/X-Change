@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "203848245110",
+    "project_id": "x-change-5eed5",
+    "storage_bucket": "x-change-5eed5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203848245110:android:0a6f237df9e0d29e7a6457",
+        "android_client_info": {
+          "package_name": "com.example.xchange2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKcWa1Vwe0QdT9cxdyLmFYqpvABeyU1Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

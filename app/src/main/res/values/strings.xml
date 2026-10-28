@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Xchange</string>
+    <string name="app_tagline">Your Unused Items, Someone\'s New Beginning.</string>
+    <string name="welcome_greeting">Hello, Welcome to Xchange!</string>
+    <string name="search_hint">Search items, books, clothing…</string>
+    <string name="free_for_need">Free for Those in Need</string>
+    <string name="sell_or_donate">Sell or Donate An Item</string>
+    <string name="featured_items">Featured Listings</string>
+    <string name="recently_added">Recently Added</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_explore">Explore</string>
+    <string name="nav_add">Add Item</string>
+    <string name="nav_messages">Messages</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_favourites">Favourites</string>
+    <string name="demo_mode_badge">Demo Mode Active</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Primary Colors -->
+    <color name="primary_forest_green">#16834A</color>
+    <color name="primary_forest_green_dark">#0F5D34</color>
+    <color name="primary_forest_green_light">#1E9D5A</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary_soft_mint">#E7F5EC</color>
+    <color name="mint_chip_background">#D2EEDC</color>
+
+    <!-- Neutral & Background Colors -->
+    <color name="background_off_white">#F8FAF8</color>
+    <color name="surface_card_white">#FFFFFF</color>
+    <color name="text_dark_charcoal">#202820</color>
+    <color name="text_secondary_gray">#616161</color>
+    <color name="text_muted_gray">#9E9E9E</color>
+
+    <!-- Status Colors -->
+    <color name="status_pending">#FF9800</color>
+    <color name="status_accepted">#16834A</color>
+    <color name="status_rejected">#E53935</color>
+    <color name="status_completed">#1976D2</color>
+
+    <!-- Accent & Borders -->
+    <color name="border_light_gray">#E0E0E0</color>
+    <color name="free_badge_color">#2E7D32</color>
+    <color name="donate_badge_background">#E8F5E9</color>
+</resources>
