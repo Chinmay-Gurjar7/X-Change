@@ -74,6 +74,29 @@
             android:textColor="@color/text_dark_charcoal"
             android:textSize="13sp" />
 
+        <TextView
+            android:id="@+id/tvOfferedItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/primary_forest_green"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvVerificationCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/secondary_soft_mint"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@color/primary_forest_green"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
         <!-- Seller Actions (Accept / Reject / Complete) -->
         <LinearLayout
             android:id="@+id/layoutActions"

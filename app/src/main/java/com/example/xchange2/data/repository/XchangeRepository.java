@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 
@@ -45,143 +46,74 @@ public class XchangeRepository {
     }
 
     private void initSampleData() {
-        // Set Default Demo User
         User defaultUser = new User("user_demo_1", "Alex Morgan", "alex@example.com", "Campus North, Block B", null);
         currentUser.setValue(defaultUser);
 
         List<Product> sampleProducts = new ArrayList<>();
         long now = System.currentTimeMillis();
 
-        // Sample Product 1: Free College Textbook (Donate)
         sampleProducts.add(new Product(
-                "p1",
-                "user_sarah",
-                "Sarah Connor",
+                "p1", "user_sarah", "Sarah Connor",
                 "Data Structures & Algorithms Textbook",
                 "4th Edition in great shape. No missing pages. Giving away for free to help fellow CS students pass their exams!",
-                Category.BOOKS,
-                Condition.GOOD,
-                ListingType.DONATE,
-                0.0,
+                Category.BOOKS, Condition.GOOD, ListingType.DONATE, 0.0,
                 "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500",
-                "University Library, Area A",
-                now - 3600000L * 2,
-                true
+                "University Library, Area A", now - 3600000L * 2, true
         ));
 
-        // Sample Product 2: Winter Jacket (Sell)
         sampleProducts.add(new Product(
-                "p2",
-                "user_john",
-                "John Doe",
+                "p2", "user_john", "John Doe",
                 "Warm North Face Winter Jacket",
                 "Size Medium, black color. Super warm and water resistant. Worn for only one season.",
-                Category.CLOTHING,
-                Condition.LIKE_NEW,
-                ListingType.SELL,
-                25.0,
+                Category.CLOTHING, Condition.LIKE_NEW, ListingType.SELL, 25.0,
                 "https://images.unsplash.com/photo-1548883354-7622d03aca27?w=500",
-                "Student Center, 2nd Floor",
-                now - 3600000L * 10,
-                true
+                "Student Center, 2nd Floor", now - 3600000L * 10, true
         ));
 
-        // Sample Product 3: Scientific Calculator (Donate)
         sampleProducts.add(new Product(
-                "p3",
-                "user_emily",
-                "Emily Watson",
+                "p3", "user_emily", "Emily Watson",
                 "Casio FX-991EX Scientific Calculator",
-                "Fully working solar calculator with engineering functions. Free for anyone who needs it for math or physics classes.",
-                Category.ELECTRONICS,
-                Condition.LIKE_NEW,
-                ListingType.DONATE,
-                0.0,
+                "Fully working solar calculator with engineering functions. Free for math/physics classes.",
+                Category.ELECTRONICS, Condition.LIKE_NEW, ListingType.DONATE, 0.0,
                 "https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?w=500",
-                "Engineering Block 3",
-                now - 3600000L * 24,
-                true
+                "Engineering Block 3", now - 3600000L * 24, true
         ));
 
-        // Sample Product 4: Wooden Study Desk & Chair (Sell)
         sampleProducts.add(new Product(
-                "p4",
-                "user_mike",
-                "Michael Scott",
+                "p4", "user_mike", "Michael Scott",
                 "Compact Wooden Study Table & Chair",
                 "Sturdy wooden desk perfect for dorm rooms or small apartments. Easy to disassemble.",
-                Category.FURNITURE,
-                Condition.GOOD,
-                ListingType.SELL,
-                35.0,
+                Category.FURNITURE, Condition.GOOD, ListingType.SELL, 35.0,
                 "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=500",
-                "West Dorms, Hall 4",
-                now - 3600000L * 30,
-                true
+                "West Dorms, Hall 4", now - 3600000L * 30, true
         ));
 
-        // Sample Product 5: Nike Running Shoes (Sell)
         sampleProducts.add(new Product(
-                "p5",
-                "user_demo_1", // My listing
-                "Alex Morgan",
+                "p5", "user_demo_1", "Alex Morgan",
                 "Nike Air Zoom Running Shoes",
                 "Size 10 US. Lightweight and extremely comfortable for daily runs or gym workouts.",
-                Category.SHOES,
-                Condition.NEW,
-                ListingType.SELL,
-                40.0,
+                Category.SHOES, Condition.NEW, ListingType.SELL, 40.0,
                 "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
-                "Campus North, Block B",
-                now - 3600000L * 48,
-                true
-        ));
-
-        // Sample Product 6: Leather Backpack (Donate)
-        sampleProducts.add(new Product(
-                "p6",
-                "user_lisa",
-                "Lisa Simpson",
-                "Vintage Brown Leather Backpack",
-                "Holds 15-inch laptop and textbooks comfortably. Zippers work great. Free for anyone starting college!",
-                Category.ACCESSORIES,
-                Condition.GOOD,
-                ListingType.DONATE,
-                0.0,
-                "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
-                "East Campus Cafeteria",
-                now - 3600000L * 5,
-                true
+                "Campus North, Block B", now - 3600000L * 48, true
         ));
 
         products.setValue(sampleProducts);
 
-        // Sample Requests
         List<ExchangeRequest> sampleRequests = new ArrayList<>();
         sampleRequests.add(new ExchangeRequest(
-                "req_1",
-                "p5",
-                "Nike Air Zoom Running Shoes",
+                "req_1", "p5", "Nike Air Zoom Running Shoes",
                 "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
-                "user_john",
-                "John Doe",
-                "user_demo_1",
-                "Alex Morgan",
-                RequestStatus.PENDING,
-                "Hi Alex, I'd like to buy these running shoes! Are they still available?",
-                now - 1800000L
+                "user_john", "John Doe", "user_demo_1", "Alex Morgan",
+                RequestStatus.PENDING, "Hi Alex, I'd like to exchange items with you!",
+                "Wireless Gaming Mouse", null, now - 1800000L
         ));
 
         exchangeRequests.setValue(sampleRequests);
 
-        // Sample Conversations & Chat Messages
         List<Conversation> sampleConvs = new ArrayList<>();
         sampleConvs.add(new Conversation(
-                "conv_1",
-                "p1",
-                "Data Structures Textbook",
-                "user_sarah",
-                "Sarah Connor",
+                "conv_1", "p1", "Data Structures Textbook",
+                "user_sarah", "Sarah Connor",
                 "Sure! We can meet at the library tomorrow at 2 PM.",
                 now - 900000L
         ));
@@ -193,33 +125,18 @@ public class XchangeRepository {
         messages.add(new ChatMessage("m3", "conv_1", "user_demo_1", "Alex Morgan", "That would be awesome! Where and when can we meet?", now - 1200000L));
         messages.add(new ChatMessage("m4", "conv_1", "user_sarah", "Sarah Connor", "Sure! We can meet at the library tomorrow at 2 PM.", now - 900000L));
 
-        MutableLiveData<List<ChatMessage>> msgLiveData = new MutableLiveData<>(messages);
-        chatMessagesMap.put("conv_1", msgLiveData);
+        chatMessagesMap.put("conv_1", new MutableLiveData<>(messages));
     }
 
-    public LiveData<User> getCurrentUser() {
-        return currentUser;
-    }
-
-    public void setCurrentUser(User user) {
-        currentUser.setValue(user);
-    }
-
-    public LiveData<List<Product>> getProducts() {
-        return products;
-    }
-
-    public LiveData<Set<String>> getFavoriteIds() {
-        return favoriteIds;
-    }
+    public LiveData<User> getCurrentUser() { return currentUser; }
+    public void setCurrentUser(User user) { currentUser.setValue(user); }
+    public LiveData<List<Product>> getProducts() { return products; }
+    public LiveData<Set<String>> getFavoriteIds() { return favoriteIds; }
 
     public void toggleFavorite(String productId) {
         Set<String> set = new HashSet<>(favoriteIds.getValue() != null ? favoriteIds.getValue() : new HashSet<>());
-        if (set.contains(productId)) {
-            set.remove(productId);
-        } else {
-            set.add(productId);
-        }
+        if (set.contains(productId)) set.remove(productId);
+        else set.add(productId);
         favoriteIds.setValue(set);
     }
 
@@ -241,12 +158,15 @@ public class XchangeRepository {
         products.setValue(currentList);
     }
 
-    public LiveData<List<ExchangeRequest>> getExchangeRequests() {
-        return exchangeRequests;
-    }
+    public LiveData<List<ExchangeRequest>> getExchangeRequests() { return exchangeRequests; }
 
     public boolean sendExchangeRequest(String productId, String productTitle, String productImageUrl,
                                       String ownerId, String ownerName, String message) {
+        return sendExchangeRequestFull(productId, productTitle, productImageUrl, ownerId, ownerName, message, null);
+    }
+
+    public boolean sendExchangeRequestFull(String productId, String productTitle, String productImageUrl,
+                                         String ownerId, String ownerName, String message, String offeredItemTitle) {
         User user = currentUser.getValue();
         if (user == null) return false;
 
@@ -270,6 +190,8 @@ public class XchangeRepository {
                 ownerName,
                 RequestStatus.PENDING,
                 message,
+                offeredItemTitle,
+                null,
                 System.currentTimeMillis()
         );
 
@@ -283,15 +205,17 @@ public class XchangeRepository {
         for (ExchangeRequest req : list) {
             if (req.getId().equals(requestId)) {
                 req.setStatus(newStatus);
+                if (newStatus == RequestStatus.ACCEPTED && (req.getVerificationCode() == null || req.getVerificationCode().isEmpty())) {
+                    String code = String.format("%04d", new Random().nextInt(10000));
+                    req.setVerificationCode(code);
+                }
                 break;
             }
         }
         exchangeRequests.setValue(list);
     }
 
-    public LiveData<List<Conversation>> getConversations() {
-        return conversations;
-    }
+    public LiveData<List<Conversation>> getConversations() { return conversations; }
 
     public LiveData<List<ChatMessage>> getChatMessages(String conversationId) {
         if (!chatMessagesMap.containsKey(conversationId)) {
@@ -311,12 +235,8 @@ public class XchangeRepository {
         }
 
         ChatMessage newMsg = new ChatMessage(
-                UUID.randomUUID().toString(),
-                conversationId,
-                user.getId(),
-                user.getName(),
-                text.trim(),
-                System.currentTimeMillis()
+                UUID.randomUUID().toString(), conversationId,
+                user.getId(), user.getName(), text.trim(), System.currentTimeMillis()
         );
         list.add(newMsg);
 
@@ -350,17 +270,32 @@ public class XchangeRepository {
 
         String newConvId = "conv_" + UUID.randomUUID().toString().substring(0, 8);
         Conversation newConv = new Conversation(
-                newConvId,
-                productId,
-                productTitle,
-                sellerId,
-                sellerName,
-                "Inquiry started",
-                System.currentTimeMillis()
+                newConvId, productId, productTitle, sellerId, sellerName,
+                "Inquiry started", System.currentTimeMillis()
         );
         convs.add(0, newConv);
         conversations.setValue(convs);
 
+        chatMessagesMap.put(newConvId, new MutableLiveData<>(new ArrayList<>()));
+        return newConvId;
+    }
+
+    public String startOrGetConversationByUserId(String peerUserId) {
+        if (peerUserId == null || peerUserId.trim().isEmpty()) return null;
+        List<Conversation> convs = new ArrayList<>(conversations.getValue() != null ? conversations.getValue() : new ArrayList<>());
+        for (Conversation c : convs) {
+            if (c.getOtherUserId().equals(peerUserId.trim())) {
+                return c.getId();
+            }
+        }
+        String newConvId = "conv_" + UUID.randomUUID().toString().substring(0, 8);
+        Conversation newConv = new Conversation(
+                newConvId, "p_custom", "Direct Exchange",
+                peerUserId.trim(), "User (" + peerUserId.trim() + ")",
+                "Exchange inquiry started", System.currentTimeMillis()
+        );
+        convs.add(0, newConv);
+        conversations.setValue(convs);
         chatMessagesMap.put(newConvId, new MutableLiveData<>(new ArrayList<>()));
         return newConvId;
     }

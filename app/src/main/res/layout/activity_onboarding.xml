@@ -182,7 +182,7 @@
         android:id="@+id/btnGetStarted"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:text="Get Started (Demo Mode)"
+        android:text="Get Started"
         android:textColor="@color/surface_card_white"
         android:backgroundTint="@color/primary_forest_green"
         app:cornerRadius="12dp" />

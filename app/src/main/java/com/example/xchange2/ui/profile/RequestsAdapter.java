@@ -71,9 +71,24 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.Reques
 
         public void bind(ExchangeRequest request) {
             Context context = itemView.getContext();
+            RequestStatus status = request.getStatus();
 
             binding.tvProductTitle.setText(request.getProductTitle());
             binding.tvNote.setText(request.getMessage() != null ? request.getMessage() : "No message provided.");
+
+            if (request.getOfferedItemTitle() != null && !request.getOfferedItemTitle().isEmpty()) {
+                binding.tvOfferedItem.setVisibility(View.VISIBLE);
+                binding.tvOfferedItem.setText("🔄 Offered Item: " + request.getOfferedItemTitle());
+            } else {
+                binding.tvOfferedItem.setVisibility(View.GONE);
+            }
+
+            if (status == RequestStatus.ACCEPTED && request.getVerificationCode() != null) {
+                binding.tvVerificationCode.setVisibility(View.VISIBLE);
+                binding.tvVerificationCode.setText("🔑 4-Digit Code: " + request.getVerificationCode());
+            } else {
+                binding.tvVerificationCode.setVisibility(View.GONE);
+            }
 
             if (isReceivedMode) {
                 binding.tvRequester.setText("From: " + request.getRequesterName());
@@ -81,7 +96,6 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.Reques
                 binding.tvRequester.setText("Seller: " + request.getOwnerName());
             }
 
-            RequestStatus status = request.getStatus();
             binding.tvStatusBadge.setText(status.getDisplayName());
 
             int statusColor = ContextCompat.getColor(context, R.color.status_pending);

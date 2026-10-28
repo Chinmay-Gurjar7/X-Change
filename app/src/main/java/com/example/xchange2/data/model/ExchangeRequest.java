@@ -11,13 +11,15 @@ public class ExchangeRequest {
     private String ownerName;
     private RequestStatus status;
     private String message;
+    private String offeredItemTitle;
+    private String verificationCode;
     private long timestamp;
 
     public ExchangeRequest() {}
 
     public ExchangeRequest(String id, String productId, String productTitle, String productImageUrl,
                            String requesterId, String requesterName, String ownerId, String ownerName,
-                           RequestStatus status, String message, long timestamp) {
+                           RequestStatus status, String message, String offeredItemTitle, String verificationCode, long timestamp) {
         this.id = id;
         this.productId = productId;
         this.productTitle = productTitle;
@@ -28,6 +30,8 @@ public class ExchangeRequest {
         this.ownerName = ownerName;
         this.status = status;
         this.message = message;
+        this.offeredItemTitle = offeredItemTitle;
+        this.verificationCode = verificationCode;
         this.timestamp = timestamp;
     }
 
@@ -60,6 +64,12 @@ public class ExchangeRequest {
 
     public String getMessage() { return message; }
     public void setMessage(String message) { this.message = message; }
+
+    public String getOfferedItemTitle() { return offeredItemTitle; }
+    public void setOfferedItemTitle(String offeredItemTitle) { this.offeredItemTitle = offeredItemTitle; }
+
+    public String getVerificationCode() { return verificationCode; }
+    public void setVerificationCode(String verificationCode) { this.verificationCode = verificationCode; }
 
     public long getTimestamp() { return timestamp; }
     public void setTimestamp(long timestamp) { this.timestamp = timestamp; }

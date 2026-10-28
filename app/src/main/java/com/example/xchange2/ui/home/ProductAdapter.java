@@ -89,7 +89,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 binding.tvPriceBadge.setText("FREE");
                 binding.tvPriceBadge.setBackgroundResource(R.drawable.badge_bg);
             } else {
-                binding.tvPriceBadge.setText(String.format("$%.2f", product.getPrice()));
+                binding.tvPriceBadge.setText(String.format("₹%.2f", product.getPrice()));
                 binding.tvPriceBadge.setBackgroundResource(R.drawable.badge_bg);
             }
 

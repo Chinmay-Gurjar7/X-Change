@@ -85,7 +85,8 @@ public class ProductDetailViewModel extends ViewModel {
         );
 
         if (success) {
-            requestMessageResult.setValue("Exchange request sent successfully!");
+            repository.startOrGetConversation(p.getId(), p.getTitle(), p.getOwnerId(), p.getOwnerName());
+            requestMessageResult.setValue("Exchange request sent & chat opened!");
         } else {
             requestMessageResult.setValue("You already have an active request for this item.");
         }

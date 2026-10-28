@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Price ($ USD)"
+            android:hint="Price (₹ INR)"
             app:boxStrokeColor="@color/primary_forest_green">
 
             <com.google.android.material.textfield.TextInputEditText

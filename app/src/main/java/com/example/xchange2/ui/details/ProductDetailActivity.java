@@ -49,7 +49,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                 binding.tvPrice.setText("FREE");
                 binding.tvPrice.setTextColor(getColor(R.color.free_badge_color));
             } else {
-                binding.tvPrice.setText(String.format("$%.2f", product.getPrice()));
+                binding.tvPrice.setText(String.format("₹%.2f", product.getPrice()));
                 binding.tvPrice.setTextColor(getColor(R.color.primary_forest_green));
             }
 

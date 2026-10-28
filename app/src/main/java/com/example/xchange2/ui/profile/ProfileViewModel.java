@@ -99,4 +99,12 @@ public class ProfileViewModel extends ViewModel {
             repository.setCurrentUser(user);
         }
     }
+
+    public String startOrGetConversationByUserId(String peerUserId) {
+        return repository.startOrGetConversationByUserId(peerUserId);
+    }
+
+    public boolean sendExchangeRequest(String productId, String productTitle, String ownerId, String ownerName, String message, String offeredItemTitle) {
+        return repository.sendExchangeRequestFull(productId, productTitle, "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500", ownerId, ownerName, message, offeredItemTitle);
+    }
 }

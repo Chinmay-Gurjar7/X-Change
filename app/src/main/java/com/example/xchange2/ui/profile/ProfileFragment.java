@@ -98,6 +98,7 @@ public class ProfileFragment extends Fragment {
         });
 
         binding.btnEditProfile.setOnClickListener(v -> showEditProfileDialog());
+        binding.btnExchange.setOnClickListener(v -> showExchangeDialog());
 
         binding.btnLogout.setOnClickListener(v -> {
             Toast.makeText(requireContext(), "Logged out of demo session.", Toast.LENGTH_SHORT).show();
@@ -179,6 +180,55 @@ public class ProfileFragment extends Fragment {
             if (!name.trim().isEmpty()) {
                 viewModel.updateProfile(name, loc);
                 Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+        builder.show();
+    }
+
+    private void showExchangeDialog() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(requireContext());
+        builder.setTitle("Propose Item Exchange");
+
+        LinearLayout layout = new LinearLayout(requireContext());
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(32, 16, 32, 16);
+
+        final EditText etOwnerId = new EditText(requireContext());
+        etOwnerId.setHint("Target Owner ID (e.g. user_sarah)");
+        layout.addView(etOwnerId);
+
+        final EditText etProductTitle = new EditText(requireContext());
+        etProductTitle.setHint("Target Item Title (e.g. Data Structures Book)");
+        layout.addView(etProductTitle);
+
+        final EditText etOfferedItem = new EditText(requireContext());
+        etOfferedItem.setHint("Your Offered Item Details (What you are listing)");
+        layout.addView(etOfferedItem);
+
+        builder.setView(layout);
+
+        builder.setPositiveButton("Send Offer", (dialog, which) -> {
+            String ownerId = etOwnerId.getText() != null ? etOwnerId.getText().toString().trim() : "";
+            String productTitle = etProductTitle.getText() != null ? etProductTitle.getText().toString().trim() : "";
+            String offeredItem = etOfferedItem.getText() != null ? etOfferedItem.getText().toString().trim() : "";
+
+            if (!ownerId.isEmpty() && !productTitle.isEmpty() && !offeredItem.isEmpty()) {
+                boolean success = viewModel.sendExchangeRequest(
+                        "p_custom_" + System.currentTimeMillis(),
+                        productTitle,
+                        ownerId,
+                        "User (" + ownerId + ")",
+                        "Hi! I'd like to exchange items with you.",
+                        offeredItem
+                );
+                if (success) {
+                    Toast.makeText(requireContext(), "Exchange offer sent successfully!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(requireContext(), "Active request already exists.", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(requireContext(), "Please fill in all fields to list your item.", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
